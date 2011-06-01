@@ -1,10 +1,10 @@
-from xml.sax.saxutils import escape
-
 import pymongo
 from aspen import Response
 
 
 class Post(dict):
+    """Model a blog post.
+    """
 
     @classmethod
     def from_path(cls, year, month, slug):
