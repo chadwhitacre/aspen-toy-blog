@@ -1,0 +1,33 @@
+import model
+from aspen import Response
+
+^L
+year = request.path['year']
+month = request.path['month']
+slug = request.path['slug']
+
+post = model.Post.from_path(year, month, slug)
+
+if request.method == 'POST':
+    title = request.body.one('title')
+    body = request.body.one('body')
+    if None not in (title, body):
+        post.save(title, body)
+        raise Response(302, headers={'Location': './%s.html' % slug})
+
+
+^L
+{% if request.method == "POST" %}
+    <form method="POST">
+        <input name="title" value="{{ post['title'] }}" /><br />
+        <textarea name="body">{{ post['body'] }}</textarea><br />
+        <input type="submit" value="Edit">
+    </form>
+{% else %}
+    <h1>{{ post['title'] }}</h1>
+    <div>{{ post['body'] }}</div>
+    <form method="POST">
+        <input type="submit" value="Edit">
+    </form>
+{% end %}
+
