@@ -21,7 +21,7 @@ if request.method == 'POST':
     <form method="POST">
         <input name="title" value="{{ post['title'] }}" /><br />
         <textarea name="body">{{ post['body'] }}</textarea><br />
-        <input type="submit" value="Edit">
+        <input type="submit" value="Save">
     </form>
 {% else %}
     <h1>{{ post['title'] }}</h1>
