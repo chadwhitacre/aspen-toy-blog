@@ -8,4 +8,6 @@ that and enter a slug and then hit "Edit" to add content. "Save" and you'll see
 your content. "Save" with empty fields to delete. Go back to the homepage and
 you'll see it listed there.
 
+.. image:: https://github.com/whit537/aspen-toy-blog/raw/master/screenshot.png
+
 Check the source code to unravel how Aspen works.
