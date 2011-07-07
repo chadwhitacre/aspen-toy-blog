@@ -18,6 +18,7 @@ if request.method == 'POST':
 
 ^L
 <title>{{ post.get('title', post['slug']) }} - Toy Blog</title>
+<a href="/">Back to Homepage</a>
 {% if request.method == "POST" %}
     <form method="POST">
         <input name="title" value="{{ post['title'] }}" /><br />

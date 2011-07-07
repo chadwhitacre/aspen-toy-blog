@@ -51,6 +51,26 @@ UPDATE = """\
         
 """
 
+DELETE = """\
+
+    DELETE
+      FROM posts
+     WHERE year = ?
+       AND month = ?
+       AND slug = ?
+          ;
+        
+"""
+
+LIST = """\
+
+    SELECT *
+      FROM posts
+  ORDER BY year, month, slug
+          ;
+
+"""
+
 
 # Define a class to model a blog post.
 # ====================================
@@ -58,6 +78,18 @@ UPDATE = """\
 class Post(dict):
     """Model a blog post.
     """
+
+    @staticmethod
+    def all():
+        with sqlite3.Connection(dbpath) as conn:
+            conn.row_factory = sqlite3.Row
+            for post in conn.execute(LIST):
+                yield Post(post)
+   
+    def get_url(self):
+        out = "/%(year)s/0%(month)s/%(slug)s.html" % self
+        out = out.replace('/00', '/0')
+        return out
 
     @classmethod
     def from_path(cls, year, month, slug):
@@ -98,8 +130,8 @@ class Post(dict):
         # Modify the Post object itself.
         # ==============================
 
-        self['title'] = title
-        self['body'] = body
+        self['title'] = title.strip()
+        self['body'] = body.strip()
 
 
         # Modify the database.
@@ -113,7 +145,10 @@ class Post(dict):
                    , self['month']
                    , self['slug']
                     )
-            if self.exists:
+            if title + body == '':
+                data = data[2:]
+                conn.execute(DELETE, data) 
+            elif self.exists:
                 conn.execute(UPDATE, data)
             else:
                 conn.execute(INSERT, data)

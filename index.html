@@ -1,0 +1,30 @@
+from blog import Post
+^L
+posts = Post.all()
+^L
+<head>
+    <title>Greetings, program!</title>
+    <script src="/jquery-1.6.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function () {
+                var now = new Date();
+                var month = '0' + (now.getMonth() + 1);
+                month = month.replace('00', '0');
+                var base = '/' + now.getFullYear() + '/' + month + '/';
+                var slug = prompt(base + '_______.html\n\nFill in the blank.');
+                if (slug)
+                    window.location.href = base + slug + '.html';
+            });
+        });
+    </script>
+</head>
+<body>
+    Greetings, program!
+    <ul>
+        {% for post in posts %}
+        <li><a href="{{ post.get_url() }}">{{ post['title'] }}</a></li>
+        {% end %}
+    </ul>
+    <button>New Post</button>
+</body>
