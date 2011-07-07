@@ -1,12 +1,16 @@
-This application demonstrates the core features of the Aspen web framework:
+This application demonstrates the core features of the `Aspen web framework
+<http://aspen.io/>`_
 
-    http://aspen.io/
+To get it running:
 
-To get it running, clone or download, and then start aspen inside of this
-directory. Hit http://localhost:8080/ and you will see a "New Post" button. Hit
-that and enter a slug and then hit "Edit" to add content. "Save" and you'll see
-your content. "Save" with empty fields to delete. Go back to the homepage and
-you'll see it listed there.
+- Clone or download.
+- Start aspen inside of this directory.
+- Hit http://localhost:8080/.
+- To create a post, click "New Post" and enter a slug.
+- "Edit" to add content.
+- "Save" to see your content.
+- Go back to the homepage and you'll see it listed there.
+- "Save" with empty fields to delete.
 
 .. image:: https://github.com/whit537/aspen-toy-blog/raw/master/screenshot.png
 
