@@ -1,5 +1,5 @@
 This application demonstrates the core features of the `Aspen web framework
-<http://aspen.io/>`_
+<http://aspen.io/>`_.
 
 To get it running:
 
@@ -14,4 +14,4 @@ To get it running:
 
 .. image:: https://github.com/whit537/aspen-toy-blog/raw/master/screenshot.png
 
-Check the source code to unravel how Aspen works.
+Poke around in the source code to unravel how Aspen works.
