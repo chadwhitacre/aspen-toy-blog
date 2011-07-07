@@ -81,10 +81,12 @@ class Post(dict):
 
     @staticmethod
     def all():
+        posts = []
         with sqlite3.Connection(dbpath) as conn:
             conn.row_factory = sqlite3.Row
             for post in conn.execute(LIST):
-                yield Post(post)
+                posts.append(Post(post))
+        return posts
    
     def get_url(self):
         out = "/%(year)s/0%(month)s/%(slug)s.html" % self

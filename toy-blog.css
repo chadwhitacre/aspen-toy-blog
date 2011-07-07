@@ -1,0 +1,26 @@
+@import url("http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css");
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic&v2");
+
+BODY {
+    font: 300 12pt/14pt Lato, sans-serif;
+    padding: 40px;
+}
+H1 {
+    font: 700 18pt/24pt Lato, sans-serif;
+    margin: 0 0 0.5em;
+}
+P {
+    margin 0 0 1em;
+}
+TEXTAREA {
+    width: 500px;
+    height: 300px;
+    margin: 0.5em 0;
+}
+BUTTON, .button {
+    margin-top: 40px;
+}
+DIV {
+    margin-top: 2em;
+}
+

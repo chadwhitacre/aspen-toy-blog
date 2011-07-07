@@ -17,19 +17,21 @@ if request.method == 'POST':
 
 
 ^L
+<style>@import url("/toy-blog.css");</style>
 <title>{{ post.get('title', post['slug']) }} - Toy Blog</title>
-<a href="/">Back to Homepage</a>
 {% if request.method == "POST" %}
     <form method="POST">
-        <input name="title" value="{{ post['title'] }}" /><br />
+        <h1><input name="title" value="{{ post['title'] }}" /></h1>
+        &larr;<a href="/">Back to Homepage</a><br />
         <textarea name="body">{{ post['body'] }}</textarea><br />
         <input type="submit" value="Save">
     </form>
 {% else %}
     <h1>{{ post['title'] }}</h1>
+    &larr;<a href="/">Back to Homepage</a>
     <div>{{ post['body'] }}</div>
     <form method="POST">
-        <input type="submit" value="Edit">
+        <input type="submit" value="Edit" class="button">
     </form>
 {% end %}
 

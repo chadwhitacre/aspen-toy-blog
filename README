@@ -1,2 +1,11 @@
-This application demonstrates Aspen's core features. Go through the slide deck
-on http://aspen.io/ for an orientation.
+This application demonstrates the core features of the Aspen web framework:
+
+    http://aspen.io/
+
+To get it running, clone or download, and then start aspen inside of this
+directory. Hit http://localhost:8080/ and you will see a "New Post" button. Hit
+that and enter a slug and then hit "Edit" to add content. "Save" and you'll see
+your content. "Save" with empty fields to delete. Go back to the homepage and
+you'll see it listed there.
+
+Check the source code to unravel how Aspen works.

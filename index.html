@@ -18,13 +18,24 @@ posts = Post.all()
             });
         });
     </script>
+    <style>
+        @import url("toy-blog.css");
+    </style>
 </head>
 <body>
-    Greetings, program!
+    <h1>Greetings, program!</h1>
+    {% if len(posts) == 0 %}
+
+    <p>This is a a toy blog demo of the <a href="http://aspen.io/">Aspen web
+        framework</a>. There are no posts yet. Click "New Post" to make
+    one.</p>
+
+    {% else %}
     <ul>
         {% for post in posts %}
         <li><a href="{{ post.get_url() }}">{{ post['title'] }}</a></li>
         {% end %}
     </ul>
+    {% end %}
     <button>New Post</button>
 </body>
